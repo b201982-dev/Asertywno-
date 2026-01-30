@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szkolenie: Asertywność w Miejscu Pracy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a52;
+            --secondary: #d4a574;
+            --accent: #e8b887;
+            --text-dark: #2c2c2c;
+            --text-light: #6b6b6b;
+            --bg-light: #faf8f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2a5a7a 100%);
+            color: var(--white);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, -50px) scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            font-weight: 300;
+            animation: slideInLeft 0.8s ease-out 0.2s both;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            animation: slideInLeft 0.8s ease-out 0.1s both;
+        }
+
+        .hero-card {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideInRight 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-text {
+            flex: 1;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 2px;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 18px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(212, 165, 116, 0.5);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 20px auto;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Program Section */
+        .program-bg {
+            background: var(--bg-light);
+        }
+
+        .program-list {
+            display: grid;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .program-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 25px;
+            align-items: start;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .program-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), #2a5a7a);
+            color: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .program-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .program-content p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Trainer Section */
+        .trainer-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .trainer-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: var(--white);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .trainer-info h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .trainer-role {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .trainer-bio {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .trainer-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .credential-badge {
+            background: var(--bg-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            border: 1px solid #e0e0e0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #2a5a7a 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button-white {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .cta-button-white:hover {
+            background: var(--bg-light);
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            margin-top: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--secondary);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 30px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 30px 25px 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .trainer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .trainer-image {
+                margin: 0 auto;
+            }
+
+            .trainer-credentials {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            section {
+                padding: 60px 20px;
+            }
+
+            .hero-content {
+                padding: 60px 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-card {
+                padding: 30px 20px;
+            }
+
+            .program-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .program-number {
+                margin: 0 auto;
+            }
+
+            .cta-button {
+                padding: 16px 36px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">Szkolenie Otwarte</div>
+                <h1>Asertywność w Miejscu Pracy</h1>
+                <p class="subtitle">Naucz się wyrażać swoje potrzeby, stawiać granice i budować zdrowe relacje zawodowe</p>
+            </div>
+            <div class="hero-card">
+                <h3>Szczegóły szkolenia</h3>
+                <div class="info-item">
+                    <div class="info-icon">📅</div>
+                    <div class="info-text">
+                        <div class="info-label">Data</div>
+                        <div class="info-value">Do uzgodnienia</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">⏱️</div>
+                    <div class="info-text">
+                        <div class="info-label">Czas trwania</div>
+                        <div class="info-value">8 godzin (1 dzień)</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <div class="info-label">Lokalizacja</div>
+                        <div class="info-value">Sala konferencyjna / Online</div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">👥</div>
+                    <div class="info-text">
+                        <div class="info-label">Liczba miejsc</div>
+                        <div class="info-value">Max 20 osób</div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px;">
+                    <a href="#zapis" class="cta-button">Zapisz się na szkolenie</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section>
+        <h2 class="section-title fade-in">Dlaczego warto uczestniczyć?</h2>
+        <p class="section-subtitle fade-in">Asertywność to umiejętność, która zmienia jakość relacji zawodowych i osobistych</p>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card fade-in stagger-1">
+                <div class="benefit-icon">💬</div>
+                <h3>Skuteczna komunikacja</h3>
+                <p>Naucz się wyrażać swoje myśli i potrzeby w sposób jasny, bezpośredni i pełen szacunku</p>
+            </div>
+            <div class="benefit-card fade-in stagger-2">
+                <div class="benefit-icon">🛡️</div>
+                <h3>Stawianie granic</h3>
+                <p>Dowiedz się, jak odmówić bez poczucia winy i chronić swój czas i energię</p>
+            </div>
+            <div class="benefit-card fade-in stagger-3">
+                <div class="benefit-icon">🤝</div>
+                <h3>Lepsze relacje</h3>
+                <p>Buduj zdrowe, oparte na wzajemnym szacunku relacje z kolegami i przełożonymi</p>
+            </div>
+            <div class="benefit-card fade-in stagger-4">
+                <div class="benefit-icon">⚖️</div>
+                <h3>Równowaga zawodowa</h3>
+                <p>Znajdź balans między asertywnym zachowaniem a empatią wobec innych</p>
+            </div>
+            <div class="benefit-card fade-in stagger-5">
+                <div class="benefit-icon">💪</div>
+                <h3>Pewność siebie</h3>
+                <p>Zwiększ swoją pewność siebie i poczucie własnej wartości w środowisku pracy</p>
+            </div>
+            <div class="benefit-card fade-in stagger-6">
+                <div class="benefit-icon">🎯</div>
+                <h3>Rozwiązywanie konfliktów</h3>
+                <p>Opanuj techniki konstruktywnego rozwiązywania konfliktów i trudnych sytuacji</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="program-bg">
+        <h2 class="section-title">Program szkolenia</h2>
+        <p class="section-subtitle">Kompleksowy program obejmujący teorię i praktykę asertywnego zachowania</p>
+        
+        <div class="program-list">
+            <div class="program-item fade-in stagger-1">
+                <div class="program-number">1</div>
+                <div class="program-content">
+                    <h3>Podstawy asertywności</h3>
+                    <p>Czym jest asertywność? Różnice między asertywnością, pasywnością i agresją. Prawa asertywne w miejscu pracy. Autoprezentacja i samoświadomość.</p>
+                </div>
+            </div>
+            
+            <div class="program-item fade-in stagger-2">
+                <div class="program-number">2</div>
+                <div class="program-content">
+                    <h3>Komunikacja asertywna</h3>
+                    <p>Techniki asertywnej komunikacji (komunikat „JA", aktywne słuchanie). Mowa ciała i komunikacja niewerbalna. Wyrażanie opinii, uczuć i potrzeb.</p>
+                </div>
+            </div>
+            
+            <div class="program-item fade-in stagger-3">
+                <div class="program-number">3</div>
+                <div class="program-content">
+                    <h3>Stawianie granic i odmawianie</h3>
+                    <p>Jak mówić „nie" bez poczucia winy. Techniki odmowy w różnych sytuacjach zawodowych. Obrona przed manipulacją i presją.</p>
+                </div>
+            </div>
+            
+            <div class="program-item fade-in stagger-4">
+                <div class="program-number">4</div>
+                <div class="program-content">
+                    <h3>Radzenie sobie z krytyką</h3>
+                    <p>Przyjmowanie i udzielanie konstruktywnej informacji zwrotnej. Techniki reagowania na krytykę uzasadnioną i nieuzasadnioną. Asertywna odpowiedź na negatywne komentarze.</p>
+                </div>
+            </div>
+            
+            <div class="program-item fade-in stagger-5">
+                <div class="program-number">5</div>
+                <div class="program-content">
+                    <h3>Rozwiązywanie konfliktów</h3>
+                    <p>Asertywne podejście do sytuacji konfliktowych. Techniki negocjacji i rozwiązywania problemów. Zarządzanie emocjami w trudnych sytuacjach.</p>
+                </div>
+            </div>
+            
+            <div class="program-item fade-in stagger-6">
+                <div class="program-number">6</div>
+                <div class="program-content">
+                    <h3>Praktyka i plan rozwoju</h3>
+                    <p>Ćwiczenia praktyczne i symulacje sytuacji zawodowych. Analiza przypadków z życia uczestników. Indywidualny plan rozwoju asertywności.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainer Section -->
+    <section>
+        <h2 class="section-title">Trener</h2>
+        <div class="trainer-content fade-in">
+            <div class="trainer-image">👤</div>
+            <div class="trainer-info">
+                <h3>Ekspert ds. Rozwoju Osobistego</h3>
+                <p class="trainer-role">Psycholog | Trener Biznesu | Coach</p>
+                <p class="trainer-bio">
+                    Doświadczony trener z ponad 10-letnim stażem w prowadzeniu szkoleń z zakresu umiejętności miękkich. 
+                    Specjalizuje się w rozwijaniu kompetencji komunikacyjnych i asertywności w środowisku korporacyjnym. 
+                    Współpracuje z wiodącymi firmami, pomagając pracownikom budować pewność siebie i efektywnie komunikować się.
+                </p>
+                <div class="trainer-credentials">
+                    <span class="credential-badge">Psychologia</span>
+                    <span class="credential-badge">Certyfikowany Coach ICF</span>
+                    <span class="credential-badge">Trener CNV</span>
+                    <span class="credential-badge">500+ szkoleń</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="program-bg">
+        <h2 class="section-title">Najczęściej zadawane pytania</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Dla kogo jest to szkolenie?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Szkolenie przeznaczone jest dla wszystkich pracowników organizacji, którzy chcą rozwijać swoje umiejętności komunikacyjne i nauczyć się asertywnego zachowania w miejscu pracy. Nie wymaga wcześniejszego doświadczenia w tym zakresie.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Czy szkolenie może odbyć się online?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Tak, szkolenie może być przeprowadzone zarówno stacjonarnie, jak i w formie online. Format online obejmuje interaktywne ćwiczenia, prace w grupach breakout oraz wykorzystanie narzędzi cyfrowych do praktyki asertywności.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Czy otrzymam certyfikat?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Tak, każdy uczestnik po ukończeniu szkolenia otrzyma certyfikat potwierdzający uczestnictwo w szkoleniu z zakresu asertywności.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Czy szkolenie zawiera materiały?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Tak, uczestnicy otrzymają komplet materiałów szkoleniowych, w tym prezentację, ćwiczenia praktyczne, karty pracy oraz zestaw narzędzi do dalszego rozwoju asertywności.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Jak mogę odwołać rejestrację?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Rejestrację można odwołać bezpłatnie do 3 dni roboczych przed planowanym terminem szkolenia. Prosimy o kontakt mailowy lub przez platformę Bookings, na której dokonano rezerwacji.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="zapis" class="cta-section">
+        <div class="cta-content">
+            <h2>Gotowy na zmianę?</h2>
+            <p>Zapisz się na szkolenie i zacznij rozwijać swoją asertywność już dziś</p>
+            
+            <!-- BOOKINGS INTEGRATION -->
+            <div style="margin: 40px 0;">
+                <a href="https://outlook.office365.com/book/TWOJA_BOOKINGS_URL/" 
+                   target="_blank" 
+                   class="cta-button cta-button-white">
+                    Zapisz się przez Microsoft Bookings
+                </a>
+            </div>
+            
+            <p style="font-size: 0.95rem; opacity: 0.8; margin-top: 20px;">
+                Po kliknięciu zostaniesz przekierowany do platformy Microsoft Bookings,<br>
+                gdzie możesz wybrać termin i dokonać rezerwacji.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Dział Rozwoju i Szkoleń. Wszelkie prawa zastrzeżone.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">
+            Pytania? Skontaktuj się z nami: szkolenia@firma.pl
+        </p>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for CTA button
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
